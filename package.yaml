@@ -12,6 +12,8 @@ description: >-
   <https://github.com/mngrm3a/timesheet-simple#readme>
 dependencies:
   - base >= 4.7 && < 5
+  - cmark-gfm
+  - transformers
 
 library:
   source-dirs: src
