@@ -1,0 +1,40 @@
+name: timesheet-simple
+version: 0.1.0.0
+github: mngrm3a/timesheet-simple
+license: BSD3
+author: Daniel Priebe
+maintainer: 3806081-mngrm3a@users.noreply.gitlab.com
+copyright: (c) 2020 Daniel Priebe
+extra-source-files:
+  - README.md
+description: >-
+  Please see the README on GitHub at
+  <https://github.com/mngrm3a/timesheet-simple#readme>
+dependencies:
+  - base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+executables:
+  timesheet-simple-exe:
+    main: Main.hs
+    source-dirs: app
+    ghc-options:
+      - '-threaded'
+      - '-rtsopts'
+      - '-with-rtsopts=-N'
+    dependencies:
+      - timesheet-simple
+tests:
+  timesheet-simple-test:
+    build-tools:
+      - 'hspec-discover:hspec-discover'
+    main: Spec.hs
+    source-dirs: test
+    ghc-options:
+      - '-threaded'
+      - '-rtsopts'
+      - '-with-rtsopts=-N'
+    dependencies:
+      - timesheet-simple
+      - hspec

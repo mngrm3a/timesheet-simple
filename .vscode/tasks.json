@@ -1,0 +1,50 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "clean",
+      "type": "shell",
+      "group": "build",
+      "command": "nix-shell --command 'stack clean'",
+    },
+    {
+      "label": "clean all",
+      "type": "shell",
+      "group": "build",
+      "command": "nix-shell --command 'stack clean'",
+    },
+    {
+      "label": "build",
+      "type": "shell",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "command": "nix-shell --command 'stack build'",
+    },
+    {
+      "label": "clean build",
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "clean all",
+        "build"
+      ],
+    },
+    {
+      "label": "test",
+      "type": "shell",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "command": "nix-shell --command 'stack test'",
+    },
+    {
+      "label": "repl",
+      "type": "shell",
+      "command": "nix-shell --command 'stack repl ${file}'",
+    }
+  ]
+}
